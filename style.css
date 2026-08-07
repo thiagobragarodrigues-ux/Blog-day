@@ -1,0 +1,30 @@
+header {
+    background-color: #e10600;
+    color: #ffffff;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    padding: 16px;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    background-color: #1f1f1f;
+    color: #ffffff;
+    max-width: 800px;
+    margin: auto;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+h2, h3 {
+    color: #e10600;
+}
