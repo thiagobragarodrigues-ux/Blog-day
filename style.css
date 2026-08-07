@@ -19,10 +19,10 @@ main {
 }
 
 img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+    width: 200px;       /* Aumentado de 80px para 200px */
+    height: auto;       /* Ajusta a altura automaticamente para não distorcer a imagem */
     object-fit: cover;
+    /* Removido o border-radius: 50% para tirar o formato de círculo */
 }
 
 h2, h3 {
