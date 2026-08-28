@@ -12,6 +12,8 @@ body.dark-theme {
     --text-color: #ffffff;
     --btn-bg: #2a2a2a;
     --btn-text: #ffffff;
+    --footer-border: #333333;
+    --link-color: #ff4d4d;
 }
 
 body.light-theme {
@@ -20,6 +22,8 @@ body.light-theme {
     --text-color: #1c1e21;
     --btn-bg: #e4e6eb;
     --btn-text: #050505;
+    --footer-border: #e4e6eb;
+    --link-color: #e10600;
 }
 
 body {
@@ -37,7 +41,6 @@ header {
     max-width: 800px;
     margin: 0 auto;
     padding: 24px 16px; 
-    position: relative;
 }
 
 header h1 {
@@ -81,24 +84,29 @@ main > p:last-of-type {
     color: #e10600;
 }
 
-/* BOTÃO DE MODO ESCURO / CLARO */
+/* CONTAINER E BOTÃO DE MODO ESCURO / CLARO NA PARTE INFERIOR */
+.container-tema {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 .btn-tema {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background-color: #ffffff;
-    color: #121212;
-    border: none;
-    padding: 8px 14px;
-    font-size: 0.85rem;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: 2px solid var(--footer-border);
+    padding: 10px 20px;
+    font-size: 0.9rem;
     font-weight: bold;
     border-radius: 20px;
     cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn-tema:hover {
     transform: scale(1.05);
+    border-color: #e10600;
 }
 
 /* BOTÕES DE CURTIR E DESCURTIR */
@@ -137,4 +145,27 @@ main > p:last-of-type {
 .btn-acao.ativo {
     background-color: #e10600;
     color: #ffffff;
+}
+
+/* RODAPÉ DO POST */
+footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--footer-border);
+    font-size: 0.9rem;
+}
+
+footer p {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+footer a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
