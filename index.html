@@ -60,9 +60,11 @@
             }
         });
 
-        // Lógica dos Botões de Curtir e Descurtir
+        // Lógica dos Botões de Curtir e Descurtir com opção de desmarcar
         let curtidores = 0;
         let descurtidores = 0;
+        let curtiu = false;
+        let descurtiu = false;
 
         const btnCurtir = document.getElementById('btn-curtir');
         const btnDescurtir = document.getElementById('btn-descurtir');
@@ -70,15 +72,49 @@
         const countDescurtir = document.getElementById('contador-descurtir');
 
         btnCurtir.addEventListener('click', () => {
-            curtidores++;
+            if (curtiu) {
+                // Desmarca a curtida
+                curtidores--;
+                curtiu = false;
+                btnCurtir.classList.remove('ativo');
+            } else {
+                // Marca a curtida
+                curtidores++;
+                curtiu = true;
+                btnCurtir.classList.add('ativo');
+
+                // Se o botão de descurtir estava ativo, desmarca ele
+                if (descurtiu) {
+                    descurtidores--;
+                    descurtiu = false;
+                    btnDescurtir.classList.remove('ativo');
+                    countDescurtir.textContent = `(${descurtidores})`;
+                }
+            }
             countCurtir.textContent = `(${curtidores})`;
-            btnCurtir.classList.toggle('ativo');
         });
 
         btnDescurtir.addEventListener('click', () => {
-            descurtidores++;
+            if (descurtiu) {
+                // Desmarca o descurtir
+                descurtidores--;
+                descurtiu = false;
+                btnDescurtir.classList.remove('ativo');
+            } else {
+                // Marca o descurtir
+                descurtidores++;
+                descurtiu = true;
+                btnDescurtir.classList.add('ativo');
+
+                // Se o botão de curtir estava ativo, desmarca ele
+                if (curtiu) {
+                    curtidores--;
+                    curtiu = false;
+                    btnCurtir.classList.remove('ativo');
+                    countCurtir.textContent = `(${curtidores})`;
+                }
+            }
             countDescurtir.textContent = `(${descurtidores})`;
-            btnDescurtir.classList.toggle('ativo');
         });
     </script>
 </body>
