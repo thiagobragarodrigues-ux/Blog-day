@@ -1,13 +1,33 @@
-/* Reset básico para evitar margens indesejadas no navegador */
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Variáveis para controle do Modo Escuro e Claro */
+body.dark-theme {
+    --bg-body: #121212;
+    --bg-main: #1f1f1f;
+    --text-color: #ffffff;
+    --btn-bg: #2a2a2a;
+    --btn-text: #ffffff;
+}
+
+body.light-theme {
+    --bg-body: #f0f2f5;
+    --bg-main: #ffffff;
+    --text-color: #1c1e21;
+    --btn-bg: #e4e6eb;
+    --btn-text: #050505;
+}
+
 body {
-    background-color: #121212; /* Fundo geral escuro para destacar o container central */
-    padding: 0 10px; /* Evita que o conteúdo cole nas bordas em telas de celular */
+    background-color: var(--bg-body);
+    color: var(--text-color);
+    padding: 0 10px;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
@@ -15,81 +35,106 @@ header {
     color: #ffffff;
     text-align: center;
     max-width: 800px;
-    margin: 0 auto; /* Centraliza o cabeçalho na tela */
+    margin: 0 auto;
     padding: 24px 16px; 
-    font-family: Arial, sans-serif;
+    position: relative;
 }
 
 header h1 {
-    margin-bottom: 16px; /* Espaço entre o título principal e a imagem do logo */
+    margin-bottom: 16px;
 }
 
 main {
-    background-color: #1f1f1f;
-    color: #ffffff;
+    background-color: var(--bg-main);
+    color: var(--text-color);
     max-width: 800px;
-    margin: 0 auto 40px auto; /* Centraliza o main e adiciona margem inferior */
-    padding: 32px 24px; /* Espaçamento interno para melhor leitura */
-    font-family: Arial, sans-serif;
+    margin: 0 auto 40px auto;
+    padding: 32px 24px;
     line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 p {
-    margin-bottom: 16px; /* Espaçamento padrão entre os parágrafos de texto */
-    text-align: justify; /* Alinha o texto de forma elegante nas laterais */
+    margin-bottom: 16px;
+    text-align: justify;
 }
 
 img {
     width: 200px;
     height: auto;
     object-fit: cover;
-    display: block; /* Transforma em bloco para permitir a centralização */
-    margin: 0 auto; /* Centraliza a imagem do logo perfeitamente no cabeçalho */
+    display: block;
+    margin: 0 auto;
 }
 
 h2, h3 {
     color: #e10600;
-    margin-top: 32px; /* Espaço antes dos títulos de seção */
-    margin-bottom: 12px; /* Espaço depois dos títulos de seção */
+    margin-top: 32px;
+    margin-bottom: 12px;
 }
 
-/* Estilo específico para destacar a chamada final no último parágrafo */
 main > p:last-of-type {
     text-align: center;
     font-weight: bold;
     margin-top: 32px;
-    margin-bottom: 20px; /* Margem adicionada para afastar do botão */
+    margin-bottom: 20px;
     color: #e10600;
 }
 
-/* NOVO ELEMENTO: Estilização do Botão de Curtir */
-.btn-curtir {
-    display: block;
-    margin: 30px auto 10px auto; /* Centraliza o botão dentro do main */
-    background-color: #e10600; /* Vermelho oficial */
-    color: #ffffff;
+/* BOTÃO DE MODO ESCURO / CLARO */
+.btn-tema {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #ffffff;
+    color: #121212;
     border: none;
-    padding: 12px 24px;
-    font-size: 1.1rem;
+    padding: 8px 14px;
+    font-size: 0.85rem;
     font-weight: bold;
-    border-radius: 25px; /* Bordas arredondadas estilo pílula */
+    border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease; /* Transição suave */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-/* Efeito visual quando o mouse passa por cima do botão */
-.btn-curtir:hover {
-    background-color: #b80500; /* Vermelho um pouco mais escuro */
-    transform: translateY(-2px); /* Efeito de flutuar levemente */
+.btn-tema:hover {
+    transform: scale(1.05);
 }
 
-/* Efeito visual no momento exato do clique */
-.btn-curtir:active {
-    transform: translateY(1px); /* Efeito de botão pressionado */
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+/* BOTÕES DE CURTIR E DESCURTIR */
+.acoes-post {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
 }
 
-.icone-coracao {
-    margin-right: 8px; /* Espaço entre o emoji e o texto */
+.btn-acao {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-acao:hover {
+    transform: translateY(-2px);
+    border-color: #e10600;
+}
+
+.btn-acao:active {
+    transform: translateY(1px);
+}
+
+.btn-acao.ativo {
+    background-color: #e10600;
+    color: #ffffff;
 }
