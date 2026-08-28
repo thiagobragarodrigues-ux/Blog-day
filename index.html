@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fórmula 1 no Grid</title>
-    <!-- Ligação com o arquivo CSS externo -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="dark-theme">
@@ -31,7 +30,6 @@
         
         <p>Se gostou do nosso blog de hoje, curta nosso post e siga nossa página! Até a próxima!</p>
 
-        <!-- SEÇÃO DE REAÇÕES: Botões de Curtir e Descurtir -->
         <div class="acoes-post">
             <button id="btn-curtir" class="btn-acao">
                 <span class="icone">👍</span> Curtir <span id="contador-curtir">(0)</span>
@@ -41,19 +39,23 @@
             </button>
         </div>
 
-        <!-- BOTÃO DE ALTERNAR TEMA (POSICIONADO NA PARTE INFERIOR) -->
         <div class="container-tema">
             <button id="btn-tema" class="btn-tema">☀️ Modo Claro</button>
         </div>
 
-        <!-- RODAPÉ COM NOME E LINK DE REFERÊNCIA -->
         <footer>
-            <p>Desenvolvido por: <strong>Seu Nome Aqui</strong></p>
-            <p>Fonte e Referências: <a href="https://www.formula1.com" target="_blank" rel="noopener noreferrer">Fórmula 1 Oficial (Formula1.com)</a></p>
+            <div class="caixa-info">
+                <span>✍️ Desenvolvido por:</span>
+                <strong>Seu Nome Aqui</strong>
+            </div>
+            
+            <div class="caixa-info">
+                <span>🔗 Fonte e Referências:</span>
+                <a href="https://www.formula1.com" target="_blank" rel="noopener noreferrer">Fórmula 1 Oficial (Formula1.com)</a>
+            </div>
         </footer>
     </main>
 
-    <!-- Script JavaScript para funcionalidade dos botões -->
     <script>
         // Lógica do Modo Escuro / Claro
         const btnTema = document.getElementById('btn-tema');

@@ -12,7 +12,8 @@ body.dark-theme {
     --text-color: #ffffff;
     --btn-bg: #2a2a2a;
     --btn-text: #ffffff;
-    --footer-border: #333333;
+    --card-bg: #2a2a2a;
+    --card-border: #333333;
     --link-color: #ff4d4d;
 }
 
@@ -22,7 +23,8 @@ body.light-theme {
     --text-color: #1c1e21;
     --btn-bg: #e4e6eb;
     --btn-text: #050505;
-    --footer-border: #e4e6eb;
+    --card-bg: #f8f9fa;
+    --card-border: #e4e6eb;
     --link-color: #e10600;
 }
 
@@ -94,7 +96,7 @@ main > p:last-of-type {
 .btn-tema {
     background-color: var(--btn-bg);
     color: var(--btn-text);
-    border: 2px solid var(--footer-border);
+    border: 2px solid var(--card-border);
     padding: 10px 20px;
     font-size: 0.9rem;
     font-weight: bold;
@@ -147,25 +149,47 @@ main > p:last-of-type {
     color: #ffffff;
 }
 
-/* RODAPÉ DO POST */
+/* RODAPÉ COM CAIXAS SEPARADAS */
 footer {
     margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid var(--footer-border);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.caixa-info {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-left: 4px solid #e10600;
+    padding: 12px 16px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 0.9rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-footer p {
-    text-align: center;
-    margin-bottom: 8px;
+.caixa-info span {
+    color: var(--text-color);
+    opacity: 0.8;
 }
 
-footer a {
+.caixa-info a {
     color: var(--link-color);
     text-decoration: none;
     font-weight: bold;
 }
 
-footer a:hover {
+.caixa-info a:hover {
     text-decoration: underline;
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 500px) {
+    .caixa-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
 }
